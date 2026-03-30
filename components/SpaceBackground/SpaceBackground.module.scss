@@ -1,0 +1,136 @@
+@function multiple-box-shadow ($n) {
+  $value: '#{random(2000)}px #{random(2000)}px #FFF';
+  @for $i from 2 through $n {
+    $value: '#{$value}, #{random(2000)}px #{random(2000)}px #FFF';
+  }
+  @return unquote($value);
+}
+
+$shadows-small:  multiple-box-shadow(700);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big:    multiple-box-shadow(100);
+
+.spaceWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -20;
+  background: radial-gradient(ellipse at bottom, #090a0f 0%, #000000 100%);
+  overflow: hidden;
+}
+
+// Milky Way
+.milkyWay {
+  position: absolute;
+  top: -20%; left: -20%;
+  width: 140%; height: 140%;
+  background: radial-gradient(ellipse at center, rgba(138, 43, 226, 0.12) 0%, rgba(75, 0, 130, 0.05) 40%, transparent 70%);
+  transform: rotate(-30deg);
+  filter: blur(80px);
+  z-index: 1;
+}
+
+// Stars
+.starsContainer {
+  z-index: 2;
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+}
+
+.stars {
+  width: 1px; height: 1px; background: transparent; box-shadow: $shadows-small;
+  animation: animStar 100s linear infinite;
+  &:after { content: " "; position: absolute; top: 2000px; width: 1px; height: 1px; background: transparent; box-shadow: $shadows-small; }
+}
+
+.stars2 {
+  width: 2px; height: 2px; background: transparent; box-shadow: $shadows-medium;
+  animation: animStar 150s linear infinite;
+  &:after { content: " "; position: absolute; top: 2000px; width: 2px; height: 2px; background: transparent; box-shadow: $shadows-medium; }
+}
+
+.stars3 {
+  width: 3px; height: 3px; background: transparent; box-shadow: $shadows-big;
+  animation: animStar 200s linear infinite;
+  &:after { content: " "; position: absolute; top: 2000px; width: 3px; height: 3px; background: transparent; box-shadow: $shadows-big; }
+}
+
+@keyframes animStar {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-2000px); }
+}
+
+// Meteors
+.meteor {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+  border-radius: 50%;
+  transform: rotate(-45deg);
+  animation: shoot 6s linear infinite;
+  z-index: 3;
+  opacity: 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    right: 0;
+    top: -1px;
+    box-shadow: 0 0 10px 2px #fff;
+  }
+}
+
+.meteor1 { top: 10%; left: 60%; animation-delay: 0s; }
+.meteor2 { top: 40%; left: 90%; animation-delay: 2.5s; animation-duration: 8s; }
+.meteor3 { top: 5%; left: 30%; animation-delay: 4s; animation-duration: 5s; }
+
+@keyframes shoot {
+  0% { transform: translate(200px, -200px) rotate(-45deg); opacity: 1; }
+  20% { opacity: 1; }
+  100% { transform: translate(-1000px, 1000px) rotate(-45deg); opacity: 0; }
+}
+
+// Planet
+.planet {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+  animation: floatPlanet 15s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatPlanet {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+// Satellite
+.satellite {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  z-index: 3;
+  animation: floatSatellite 45s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatSatellite {
+  0% { transform: translate(-10vw, 0) rotate(15deg); }
+  25% { transform: translate(30vw, -30px) rotate(20deg); }
+  50% { transform: translate(60vw, 0) rotate(15deg); }
+  75% { transform: translate(90vw, -30px) rotate(10deg); }
+  100% { transform: translate(120vw, 0) rotate(15deg); }
+}
