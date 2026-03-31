@@ -1,7 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState, useRef } from "react";
 import { Fade } from "react-reveal";
-import { Howl } from "howler";
 import Button from "../Button/Button";
 import FooterBg from "./FooterBg/FooterBg";
 import Profiles from "../Profiles/Profiles";
@@ -9,23 +7,6 @@ import { theme } from "tailwind.config";
 import { MENULINKS } from "../../constants";
 
 const Footer = () => {
-  const [playbackRate, setPlaybackRate] = useState(0.75);
-  const heartClickSound = useRef(null);
-  
-  if (heartClickSound.current === null) {
-    heartClickSound.current = new Howl({
-      src: ["/sounds/glug-a.mp3"],
-      rate: 0.75,
-      volume: 0.5,
-    });
-  }
-
-  const handleClick = () => {
-    const newRate = playbackRate + 0.1;
-    heartClickSound.current.rate(newRate);
-    heartClickSound.current.play();
-    setPlaybackRate(newRate);
-  };
 
   return (
     <footer
@@ -54,11 +35,7 @@ const Footer = () => {
               </Button>
             </div>
             <p className="text-center text-white text-sm sm:text-base font-medium tracking-wide mt-8">
-              Developed with{" "}
-              <button onClick={handleClick} className="link cursor-none">
-                <span className="block animate-bounce">❤️</span>
-              </button>{" "}
-              by <span className="text-white">Sourav V Salunke</span>
+              Developed by <span className="text-white">Sourav V Salunke</span>
             </p>
           </div>
         </div>
