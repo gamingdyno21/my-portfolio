@@ -94,7 +94,7 @@ export const PROJECTS = [
     imageKey: "dukaan", // Placeholder using existing image
     description: "Helps users track and analyze their carbon footprint 🌱",
     gradient: ["#2E7D32", "#4CAF50"], 
-    url: null,
+    url: "https://github.com/gamingdyno21/CarbonX",
     tech: ["react", "nodejs", "mongodb"],
   },
   {
@@ -102,7 +102,7 @@ export const PROJECTS = [
     imageKey: "bot9", 
     description: "Insights to improve productivity and time management ⏱️",
     gradient: ["#1565C0", "#42A5F5"], 
-    url: null,
+    url: "https://github.com/gamingdyno21/chrome-extention",
     tech: ["javascript", "chrome"],
   },
   {
@@ -110,7 +110,7 @@ export const PROJECTS = [
     imageKey: "ready-ai", 
     description: "Track expenses and visualize financial data 💰",
     gradient: ["#F9A825", "#FFCA28"], 
-    url: null,
+    url: "https://github.com/gamingdyno21/FinVault",
     tech: ["react", "nodejs", "expressjs", "mongodb"],
   },
   {
@@ -120,6 +120,14 @@ export const PROJECTS = [
     gradient: ["#6A1B9A", "#AB47BC"], 
     url: null,
     tech: ["react", "nodejs", "openai"],
+  },
+  {
+    name: "My Portfolio",
+    imageKey: "nextboss", 
+    description: "My personal portfolio website built with modern web technologies 🚀",
+    gradient: ["#0F2027", "#203A43"], 
+    url: "https://github.com/gamingdyno21/my-portfolio",
+    tech: ["react", "nextjs", "tailwindcss"],
   },
 ];
 

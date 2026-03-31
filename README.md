@@ -24,3 +24,6 @@ To run this application locally on your machine:
 
 ## 🎵 Customizing Audio
 If you wish to change the background music again, simply drop any `.mp3` file into the `public/sounds/` directory and rename it to `song.mp3`!
+
+---
+*Developed by Sourav V Salunke*
