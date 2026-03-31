@@ -92,7 +92,7 @@ export const PROJECTS = [
   {
     name: "CarbonX",
     imageKey: "dukaan", // Placeholder using existing image
-    description: "Helps users track and analyze their carbon footprint 🌱",
+    description: "Manage companies and monitor industry carbon usage limits 🏭",
     gradient: ["#2E7D32", "#4CAF50"], 
     url: "https://github.com/gamingdyno21/CarbonX",
     tech: ["react", "nodejs", "mongodb"],
